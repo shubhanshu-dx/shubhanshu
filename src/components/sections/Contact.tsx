@@ -1,6 +1,8 @@
 import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Github } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { Card, CardContent } from '../../components/ui/card';
+import { supabase } from '../../lib/supabaseClient';
+import { useState } from 'react';
 
 const Contact = () => {
   const socialLinks = [
@@ -8,6 +10,45 @@ const Contact = () => {
     { icon: Twitter, href: 'https://x.com/Shubhanshusiwan?t=wuFrb_KiH0hGEg4vEeBqPw&s=08', label: 'Twitter' },
     //{ icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
   ];
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
+
+    try {
+      const { error: insertError } = await supabase
+        .from('contact_submissions') // Replace with your table name if different
+        .insert([formData]);
+
+      if (insertError) {
+        throw insertError;
+      }
+
+      setSuccess('Your message has been sent successfully!');
+      setFormData({ name: '', email: '', subject: '', message: '' }); // Clear form
+    } catch (err: unknown) {
+      console.error('Error submitting form:', err);
+      setError('Failed to send message. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 bg-background">
@@ -90,47 +131,65 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className="animate-fade-in-right mt-12 lg:mt-0">
             <CardContent className="p-6 sm:p-8">
-              <form className="space-y-4 sm:space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div className="grid md:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5 sm:mb-2">Name</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5 sm:mb-2">Name</label>
                     <input 
                       type="text" 
+                      id="name"
                       className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-gray-200 bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-colors text-sm sm:text-base"
                       placeholder="Your name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5 sm:mb-2">Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5 sm:mb-2">Email</label>
                     <input 
                       type="email" 
+                      id="email"
                       className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-gray-200 bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-colors text-sm sm:text-base"
                       placeholder="solvespheretech@email.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5 sm:mb-2">Subject</label>
+                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1.5 sm:mb-2">Subject</label>
                   <input 
                     type="text" 
+                    id="subject"
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-colors text-sm sm:text-base"
                     placeholder="Project inquiry"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5 sm:mb-2">Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5 sm:mb-2">Message</label>
                   <textarea 
+                    id="message"
                     rows={5} // Adjusted rows for mobile
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-gray-200 bg-background focus:outline-none focus:ring-2 focus:ring-primary transition-colors resize-none text-sm sm:text-base"
                     placeholder="Tell us about your project..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
                   ></textarea>
                 </div>
                 
-                <Button className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 animate-pulse-once px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg">
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
+                {success && <p className="text-brand-green text-sm mt-2 animate-fade-in">{success}</p>}
+                {error && <p className="text-destructive text-sm mt-2 animate-fade-in">{error}</p>}
+
+                <Button type="submit" className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 animate-pulse-once" disabled={loading}>
+                  {loading ? 'Sending...' : <><Send className="mr-2 h-5 w-5" /> Send Message</>}
                 </Button>
               </form>
             </CardContent>
