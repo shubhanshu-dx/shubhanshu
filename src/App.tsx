@@ -6,6 +6,8 @@ import Services from './components/sections/Services';
 // import Testimonials from './components/sections/Testimonials';
 // import Careers from './components/sections/Careers';
 import Contact from './components/sections/Contact';
+import Process from './components/sections/Process.tsx';
+import Hero from './components/sections/Hero.tsx';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Navbar />
       <About />
       <Services />
+      <Hero/>
+      <Process/>
       <Contact />
       
       {/* Footer */}
