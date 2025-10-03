@@ -72,6 +72,8 @@ const Navbar = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
+              aria-controls="mobile-menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -80,18 +82,18 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur-md shadow-medium animate-fade-in-down">
-            <div className="px-2 pt-2 pb-3 space-y-1 rounded-lg mt-2">
+          <div className="md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur-md shadow-medium animate-fade-in-down" id="mobile-menu">
+            <div className="px-4 pt-2 pb-4 space-y-2 rounded-lg mt-2">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors duration-200"
+                  className="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-muted rounded-md transition-colors duration-200 text-base"
                 >
                   {item.name}
                 </button>
               ))}
-              <div className="pt-2">
+              <div className="pt-3">
                 <Button 
                   onClick={() => scrollToSection('#contact')}
                   className="w-full bg-gradient-primary"

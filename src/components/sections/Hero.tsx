@@ -26,23 +26,23 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-primary-foreground">
         <div className="animate-fade-in-up">
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-inter font-bold mb-6 leading-tight animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-inter font-bold mb-4 sm:mb-6 leading-tight animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
             <span className="block">Crafting Digital</span>
             <span className="block text-brand-green">Experiences</span>
             <span className="block">That Matter.</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-3xl mx-auto font-inter font-light animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
+          <p className="text-lg sm:text-xl md:text-2xl opacity-90 mb-6 sm:mb-8 max-w-3xl mx-auto font-inter font-light animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
             We blend innovative technology with creative design to deliver solutions that drive growth and engagement.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <Button 
               size="lg"
               onClick={() => scrollToSection('#contact')}
-              className="bg-brand-green hover:bg-brand-green/90 text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:shadow-glow hover:scale-105"
+              className="bg-brand-green hover:bg-brand-green/90 text-primary-foreground px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-glow hover:scale-105"
             >
               Start Your Project
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -52,7 +52,7 @@ const Hero = () => {
               variant="outline"
               size="lg"
               onClick={() => scrollToSection('#services')}
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-8 py-3 text-lg font-semibold backdrop-blur-sm"
+              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-semibold backdrop-blur-sm"
             >
               <Play className="mr-2 h-5 w-5" />
               Explore Our Services
@@ -60,7 +60,7 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mt-12 sm:mt-16 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
             {[{
               number: '50+',
               label: 'Projects'
@@ -78,8 +78,8 @@ const Hero = () => {
               label: 'Satisfaction'
             }].map((stat, index) => (
               <div key={index} className="text-center animate-fade-in-up-stagger" style={{ animationDelay: `${1.0 + index * 0.1}s` }}>
-                <div className="text-3xl md:text-4xl font-bold text-brand-green mb-2">{stat.number}</div>
-                <div className="text-primary-foreground/80 text-sm uppercase tracking-wide">{stat.label}</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-green mb-1 sm:mb-2">{stat.number}</div>
+                <div className="text-primary-foreground/80 text-xs sm:text-sm uppercase tracking-wide">{stat.label}</div>
               </div>
             ))}
           </div>

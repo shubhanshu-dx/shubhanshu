@@ -66,35 +66,35 @@ const Technologies = () => {
   return (
     <section id="technologies" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 font-inter">
             Our <span className="text-primary">Core Technologies</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             We leverage a diverse and modern tech stack to build robust, scalable, and innovative solutions.
           </p>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-12 sm:space-y-16">
           {techCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="animate-fade-in-up-stagger" style={{ animationDelay: `${0.2 + categoryIndex * 0.15}s` }}>
-              <div className="flex items-center justify-center mb-8 animate-fade-in-up-stagger" style={{ animationDelay: `${0.3 + categoryIndex * 0.15}s` }}>
-                <category.icon className="h-8 w-8 text-primary mr-3" />
-                <h3 className="text-3xl font-bold text-foreground">{category.name}</h3>
+              <div className="flex items-center justify-center mb-6 sm:mb-8 animate-fade-in-up-stagger" style={{ animationDelay: `${0.3 + categoryIndex * 0.15}s` }}>
+                <category.icon className="h-7 w-7 sm:h-8 sm:w-8 text-primary mr-2 sm:mr-3" />
+                <h3 className="text-2xl sm:text-3xl font-bold text-foreground">{category.name}</h3>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 justify-items-center">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 justify-items-center">
                 {category.technologies.map((tech, techIndex) => (
                   <div 
                     key={techIndex} 
-                    className="flex flex-col items-center justify-center p-4 bg-card rounded-xl shadow-sm hover:shadow-medium transition-all duration-300 transform hover:scale-105 group animate-fade-in-up-stagger"
+                    className="flex flex-col items-center justify-center p-3 sm:p-4 bg-card rounded-xl shadow-sm hover:shadow-medium transition-all duration-300 transform hover:scale-105 group animate-fade-in-up-stagger"
                     style={{ animationDelay: `${0.4 + categoryIndex * 0.15 + techIndex * 0.05}s` }}
                   >
                     <img 
                       src={tech.logo} 
                       alt={`${tech.name} logo`} 
-                      className="h-12 w-12 mb-3 grayscale group-hover:grayscale-0 transition-all duration-300"
+                      className="h-10 w-10 sm:h-12 sm:w-12 mb-2 sm:mb-3 grayscale group-hover:grayscale-0 transition-all duration-300"
                     />
-                    <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">{tech.name}</p>
+                    <p className="text-xs sm:text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">{tech.name}</p>
                   </div>
                 ))}
               </div>

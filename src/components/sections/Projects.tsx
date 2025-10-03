@@ -51,16 +51,16 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 font-inter">
             Our Latest <span className="text-primary">Projects</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Explore a selection of our recent work, showcasing our expertise across various domains and technologies.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <Card 
               key={index} 
@@ -71,24 +71,24 @@ const Projects = () => {
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="rounded-t-2xl w-full h-48 object-cover"
+                  className="rounded-t-2xl w-full h-40 sm:h-48 object-cover"
                 />
               </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="text-xl font-bold text-foreground mb-2">{project.title}</CardTitle>
-                <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+              <CardContent className="p-5 sm:p-6">
+                <CardTitle className="text-lg sm:text-xl font-bold text-foreground mb-2">{project.title}</CardTitle>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                   {project.technologies.map((tech, techIndex) => (
                     <span 
                       key={techIndex} 
-                      className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full"
+                      className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className="p-6 pt-0 flex justify-end">
+              <CardFooter className="p-5 sm:p-6 pt-0 flex justify-end">
                 <Button variant="ghost" className="text-primary hover:text-primary/80">
                   View Project
                   <ExternalLink className="ml-2 h-4 w-4" />
@@ -99,14 +99,14 @@ const Projects = () => {
         </div>
 
         {/* Call to action for more projects */}
-        <div className="mt-16 text-center animate-fade-in-up" style={{ animationDelay: `${0.2 + projects.length * 0.1}s` }}>
-          <p className="text-lg text-muted-foreground mb-6">
+        <div className="mt-12 sm:mt-16 text-center animate-fade-in-up" style={{ animationDelay: `${0.2 + projects.length * 0.1}s` }}>
+          <p className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6">
             Interested in seeing more of our work or starting a new project?
           </p>
           <Button 
             size="lg"
             onClick={() => window.location.href = '#contact'}
-            className="bg-gradient-primary hover:shadow-glow transition-all duration-300"
+            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg"
           >
             Contact Us for a Consultation
             <ArrowRight className="ml-2 h-5 w-5" />

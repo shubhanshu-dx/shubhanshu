@@ -54,36 +54,36 @@ const Services = () => {
     <section id="services" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Services Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 font-inter">
             Our <span className="text-primary">Comprehensive Services</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             We offer a spectrum of digital solutions designed to elevate your business in today's dynamic landscape.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
           {services.map((service, index) => (
             <Card 
               key={index} 
               className="group hover:shadow-strong transition-all duration-300 hover:-translate-y-2 border-gray-200/50 animate-fade-in-up-stagger" 
               style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
-              <CardContent className="p-8 flex flex-col items-start">
-                <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:animate-glow transition-all duration-300">
-                  <service.icon className="h-8 w-8 text-primary-foreground" />
+              <CardContent className="p-6 sm:p-8 flex flex-col items-start">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:animate-glow transition-all duration-300">
+                  <service.icon className="h-7 w-7 sm:h-8 sm:w-8 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4 group-hover:text-primary transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">
+                <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed flex-grow">
                   {service.description}
                 </p>
-                <ul className="space-y-2 w-full">
+                <ul className="space-y-1 sm:space-y-2 w-full">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="text-sm text-muted-foreground flex items-center">
+                    <li key={featureIndex} className="text-xs sm:text-sm text-muted-foreground flex items-center">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                       {feature}
                     </li>
@@ -95,15 +95,15 @@ const Services = () => {
         </div>
 
         {/* Call to Action for Services */}
-        <div className="text-center bg-gradient-section p-8 md:p-12 rounded-3xl mt-16 animate-fade-in-up" style={{ animationDelay: `${0.2 + services.length * 0.1}s` }}>
-          <h3 className="text-3xl font-bold text-foreground mb-4">Ready to Transform Your Business?</h3>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+        <div className="text-center bg-gradient-section p-6 sm:p-8 md:p-12 rounded-3xl mt-12 sm:mt-16 animate-fade-in-up" style={{ animationDelay: `${0.2 + services.length * 0.1}s` }}>
+          <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">Ready to Transform Your Business?</h3>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8">
             Partner with SolveSphere Technologies to build innovative solutions that drive your success.
           </p>
           <Button 
             size="lg"
             onClick={() => window.location.href = '#contact'}
-            className="bg-brand-green hover:bg-brand-green/90 text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:shadow-glow hover:scale-105"
+            className="bg-brand-green hover:bg-brand-green/90 text-primary-foreground px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-semibold transition-all duration-300 hover:shadow-glow hover:scale-105"
           >
             Get a Free Consultation
             <ArrowRight className="ml-2 h-5 w-5" />

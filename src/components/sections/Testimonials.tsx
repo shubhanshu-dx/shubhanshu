@@ -32,38 +32,38 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 font-inter">
             What Our <span className="text-primary">Clients Say</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Hear directly from the businesses and individuals who have partnered with SolveSphere Technologies.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="bg-card p-6 rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300 animate-fade-in-up-stagger"
+              className="bg-card p-5 sm:p-6 rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300 animate-fade-in-up-stagger"
               style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
               <CardContent className="p-0 flex flex-col h-full">
-                <div className="flex items-center mb-4">
+                <div className="flex items-center mb-3 sm:mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star 
                       key={i} 
-                      className={`h-5 w-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-muted-foreground'}`} 
+                      className={`h-4 w-4 sm:h-5 sm:w-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-muted-foreground'}`} 
                       fill={i < testimonial.rating ? 'currentColor' : 'none'}
                     />
                   ))}
                 </div>
-                <p className="text-muted-foreground text-lg italic mb-6 flex-grow">
+                <p className="text-base sm:text-lg italic mb-4 sm:mb-6 flex-grow text-muted-foreground">
                   "{testimonial.quote}"
                 </p>
-                <div className="pt-4 border-t border-border/50">
-                  <p className="font-semibold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                <div className="pt-3 sm:pt-4 border-t border-border/50">
+                  <p className="font-semibold text-base sm:text-lg text-foreground">{testimonial.name}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.title}</p>
                 </div>
               </CardContent>
             </Card>
