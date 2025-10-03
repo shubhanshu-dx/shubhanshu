@@ -1,4 +1,5 @@
 import { Target, Eye, Heart, Users, Lightbulb, TrendingUp } from 'lucide-react';
+import teamImage from '/team-collaboration-DIgNr2hI.jpg'; // Import the image from public folder
 
 const About = () => {
   return (
@@ -37,9 +38,11 @@ const About = () => {
           </div>
           
           <div className="animate-fade-in-right">
-            <div className="rounded-2xl shadow-strong w-full h-64 bg-gradient-primary flex items-center justify-center">
-              <span className="text-primary-foreground text-lg font-semibold">Our Collaborative Team</span>
-            </div>
+            <img 
+              src={teamImage} 
+              alt="Our Collaborative Team" 
+              className="rounded-2xl shadow-strong w-full h-64 object-cover"
+            />
           </div>
         </div>
 

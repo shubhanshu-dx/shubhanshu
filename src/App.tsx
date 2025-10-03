@@ -1,9 +1,9 @@
 import Navbar from './components/layout/Navbar';
 import About from './components/sections/About';
 import Services from './components/sections/Services';
-// import Technologies from './components/sections/Technologies';
-// import Projects from './components/sections/Projects';
-// import Testimonials from './components/sections/Testimonials';
+import Technologies from './components/sections/Technologies';
+import Projects from './components/sections/Projects';
+import Testimonials from './components/sections/Testimonials';
 // import Careers from './components/sections/Careers';
 import Contact from './components/sections/Contact';
 import Process from './components/sections/Process.tsx';
@@ -13,9 +13,12 @@ function App() {
   return (
     <div className="min-h-screen bg-background font-inter">
       <Navbar />
+      <Hero/>
       <About />
       <Services />
-      <Hero/>
+      <Technologies />
+      <Projects />
+      <Testimonials />
       <Process/>
       <Contact />
       
