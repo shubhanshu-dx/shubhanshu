@@ -1,18 +1,17 @@
-import { useState } from 'react'; // Keep useState for mobile menu
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from "../ui/Button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // Removed scrolled state and useEffect, Navbar will always have background
 
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
-    { name: 'Technologies', href: '#technologies' }, // Added Technologies
-    { name: 'Projects', href: '#projects' }, // Changed Portfolio to Projects
-    { name: 'Testimonials', href: '#testimonials' }, // Added Testimonials
+    { name: 'Technologies', href: '#technologies' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Testimonials', href: '#testimonials' },
     { name: 'Process', href: '#process' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -31,14 +30,14 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+            <a href="#home" className="flex items-center space-x-2 group">
+              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
                 <span className="text-primary-foreground font-bold text-lg">S</span>
               </div>
               <span className="font-inter font-bold text-xl text-foreground">
                 SolveSphere
               </span>
-            </div>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
@@ -48,9 +47,10 @@ const Navbar = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                  className="relative text-foreground hover:text-primary transition-colors duration-200 font-medium group"
                 >
                   {item.name}
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </button>
               ))}
             </div>
@@ -60,7 +60,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Button 
               onClick={() => scrollToSection('#contact')}
-              className="bg-gradient-primary hover:shadow-glow transition-all duration-300"
+              className="bg-gradient-primary hover:shadow-glow transition-all duration-300 animate-pulse-once"
             >
               Get Started
             </Button>
@@ -80,8 +80,8 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-md rounded-lg mt-2 shadow-medium">
+          <div className="md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur-md shadow-medium animate-fade-in-down">
+            <div className="px-2 pt-2 pb-3 space-y-1 rounded-lg mt-2">
               {navItems.map((item) => (
                 <button
                   key={item.name}

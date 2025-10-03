@@ -1,6 +1,6 @@
 import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
-// We will assume a placeholder image for now, as the original was missing.
+// Placeholder for any background elements or specific images
 
 const Hero = () => {
   const scrollToSection = (href: string) => {
@@ -12,28 +12,28 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen relative flex items-center justify-center overflow-hidden bg-gradient-hero py-16">
-      {/* Background Overlay - Simplified for now */}
+      {/* Background Overlay */}
       <div className="absolute inset-0 bg-brand-navy opacity-80"></div>
 
-      {/* Floating Elements (Visual flair) */}
+      {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-float opacity-30"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 bg-brand-green/5 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-40 left-20 w-16 h-16 bg-primary/20 rounded-full animate-float opacity-30" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-24 h-24 bg-primary/10 rounded-full animate-float opacity-30 blur-sm" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute bottom-1/3 right-1/4 w-36 h-36 bg-brand-green/5 rounded-full animate-float-reverse opacity-20 blur-sm" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-20 h-20 bg-primary/20 rounded-full animate-float opacity-40 blur-sm" style={{ animationDelay: '3s' }}></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-primary-foreground">
-        <div className="animate-fade-in">
+        <div className="animate-fade-in-up">
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-inter font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-inter font-bold mb-6 leading-tight animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
             <span className="block">Crafting Digital</span>
             <span className="block text-brand-green">Experiences</span>
             <span className="block">That Matter.</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-3xl mx-auto font-inter font-light">
+          <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-3xl mx-auto font-inter font-light animate-slide-in-up" style={{ animationDelay: '0.4s' }}>
             We blend innovative technology with creative design to deliver solutions that drive growth and engagement.
           </p>
 
@@ -59,15 +59,25 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Stats - Simplified for integration */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 animate-fade-in" style={{ animationDelay: '0.9s' }}>
-            {[
-              { number: '50+', label: 'Projects' },
-              { number: '25+', label: 'Clients' },
-              { number: '10+', label: 'Awards' },
-              { number: '99%', label: 'Satisfaction' }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
+            {[{
+              number: '50+',
+              label: 'Projects'
+            },
+            {
+              number: '25+',
+              label: 'Clients'
+            },
+            {
+              number: '10+',
+              label: 'Awards'
+            },
+            {
+              number: '99%',
+              label: 'Satisfaction'
+            }].map((stat, index) => (
+              <div key={index} className="text-center animate-fade-in-up-stagger" style={{ animationDelay: `${1.0 + index * 0.1}s` }}>
                 <div className="text-3xl md:text-4xl font-bold text-brand-green mb-2">{stat.number}</div>
                 <div className="text-primary-foreground/80 text-sm uppercase tracking-wide">{stat.label}</div>
               </div>
