@@ -1,15 +1,42 @@
 import Navbar from './components/layout/Navbar';
+import Hero from './components/sections/Hero.tsx';
 import About from './components/sections/About';
 import Services from './components/sections/Services';
 import Technologies from './components/sections/Technologies';
 import Projects from './components/sections/Projects';
 import Testimonials from './components/sections/Testimonials';
-// import Careers from './components/sections/Careers';
-import Contact from './components/sections/Contact';
 import Process from './components/sections/Process.tsx';
-import Hero from './components/sections/Hero.tsx';
+import Contact from './components/sections/Contact';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    const handleSmoothScroll = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]');
+
+      if (anchor instanceof HTMLAnchorElement) {
+        event.preventDefault();
+        const href = anchor.getAttribute('href');
+        if (href) {
+          const targetElement = document.querySelector(href);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', handleSmoothScroll);
+
+    return () => {
+      document.removeEventListener('click', handleSmoothScroll);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background font-inter">
       <Navbar />
