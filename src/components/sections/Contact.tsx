@@ -1,12 +1,18 @@
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Github } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { Card, CardContent } from '../../components/ui/card';
 
 const Contact = () => {
+  const socialLinks = [
+    { icon: Linkedin, href: 'https://linkedin.com/in/shubhanshu-kumar-347090187/', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://x.com/Shubhanshusiwan?t=wuFrb_KiH0hGEg4vEeBqPw&s=08', label: 'Twitter' },
+    //{ icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
+  ];
+
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
             Let's <span className="text-primary">Connect</span>
           </h2>
@@ -26,12 +32,25 @@ const Contact = () => {
             </div>
             
             <div className="space-y-6">
-              {[
-                { icon: Mail, title: 'Email', value: 'hello@solvesphere.tech', href: 'mailto:hello@solvesphere.tech' },
-                { icon: Phone, title: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-                { icon: MapPin, title: 'Location', value: 'Remote & On-site Available', href: '#' }
-              ].map((contact, index) => (
-                <Card key={index} className="animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              {[{
+                icon: Mail,
+                title: 'Email',
+                value: 'hello@solvesphere.tech',
+                href: 'mailto:hello@solvesphere.tech'
+              },
+              {
+                icon: Phone,
+                title: 'Phone',
+                //value: '+1 (555) 123-4567',
+                href: 'tel:+91 8417848540'
+              },
+              {
+                icon: MapPin,
+                title: 'Location',
+                value: 'Remote & On-site Available',
+                href: '#'
+              }].map((contact, index) => (
+                <Card key={index} className="animate-fade-in-up-stagger" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
                   <CardContent className="p-6 flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
                       <contact.icon className="h-6 w-6 text-primary-foreground" />
@@ -45,6 +64,26 @@ const Contact = () => {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+
+            {/* Social Links */}
+            <div className="mt-10 animate-fade-in-up" style={{ animationDelay: `${0.2 + (socialLinks.length * 0.1)}s` }}>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Follow Us</h3>
+              <div className="flex space-x-6">
+                {socialLinks.map((social, index) => (
+                  <a 
+                    key={index} 
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 transform hover:scale-125 flex items-center justify-center w-10 h-10 rounded-full border border-border hover:border-primary"
+                    aria-label={social.label}
+                    style={{ animationDelay: `${0.3 + (socialLinks.length * 0.1) + index * 0.05}s` }}
+                  >
+                    <social.icon className="h-5 w-5" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -89,7 +128,7 @@ const Contact = () => {
                   ></textarea>
                 </div>
                 
-                <Button className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300">
+                <Button className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 animate-pulse-once">
                   <Send className="mr-2 h-5 w-5" />
                   Send Message
                 </Button>
