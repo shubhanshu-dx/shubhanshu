@@ -31,7 +31,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#home" className="flex items-center space-x-2 group">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-45">
                 <span className="text-primary-foreground font-bold text-lg">S</span>
               </div>
               <span className="font-inter font-bold text-xl text-foreground">

@@ -8,7 +8,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { Card, CardContent } from '../../components/ui/card';
-import { Button } from '../../components/ui/button'; // Import the Button component
+import { Button } from '../../components/ui/Button'; // Import the Button component
 
 const Services = () => {
   const services = [
@@ -54,7 +54,7 @@ const Services = () => {
     <section id="services" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Services Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
             Our <span className="text-primary">Comprehensive Services</span>
           </h2>
@@ -68,8 +68,8 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-strong transition-all duration-300 hover:-translate-y-2 border-gray-200/50 animate-scale-in" 
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group hover:shadow-strong transition-all duration-300 hover:-translate-y-2 border-gray-200/50 animate-fade-in-up-stagger" 
+              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
               <CardContent className="p-8 flex flex-col items-start">
                 <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:animate-glow transition-all duration-300">
@@ -95,7 +95,7 @@ const Services = () => {
         </div>
 
         {/* Call to Action for Services */}
-        <div className="text-center bg-gradient-section p-8 md:p-12 rounded-3xl mt-16">
+        <div className="text-center bg-gradient-section p-8 md:p-12 rounded-3xl mt-16 animate-fade-in-up" style={{ animationDelay: `${0.2 + services.length * 0.1}s` }}>
           <h3 className="text-3xl font-bold text-foreground mb-4">Ready to Transform Your Business?</h3>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
             Partner with SolveSphere Technologies to build innovative solutions that drive your success.

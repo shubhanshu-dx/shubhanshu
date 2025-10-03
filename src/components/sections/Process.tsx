@@ -1,5 +1,5 @@
 import { Lightbulb, Code, Rocket, ArrowRight } from 'lucide-react';
-import { Button } from '../../components/ui/button'; // Import the Button component
+import { Button } from '../../components/ui/Button'; // Import the Button component
 
 const Process = () => {
   const steps = [
@@ -30,7 +30,7 @@ const Process = () => {
     <section id="process" className="py-20 bg-gradient-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
             Our <span className="text-primary">Streamlined Process</span>
           </h2>
@@ -46,7 +46,7 @@ const Process = () => {
           
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             {steps.map((step, index) => (
-              <div key={index} className="group relative">
+              <div key={index} className="group relative animate-fade-in-up-stagger" style={{ animationDelay: `${0.2 + index * 0.15}s` }}>
                 {/* Mobile Connection Arrow */}
                 {index < steps.length - 1 && (
                   <div className="lg:hidden flex justify-center mt-8 mb-8">
@@ -54,7 +54,7 @@ const Process = () => {
                   </div>
                 )}
                 
-                <div className="relative bg-card p-8 rounded-3xl shadow-medium group-hover:shadow-strong transition-all duration-500 group-hover:-translate-y-2 animate-scale-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className="relative bg-card p-8 rounded-3xl shadow-medium group-hover:shadow-strong transition-all duration-500 group-hover:-translate-y-2">
                   {/* Step Number */}
                   <div className="absolute -top-4 left-8 w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-lg border-2 border-background">
                     {index + 1}
@@ -91,18 +91,28 @@ const Process = () => {
         </div>
 
         {/* Why Our Process Works - New Section */}
-        <div className="mt-20 text-center bg-gradient-section p-8 md:p-12 rounded-3xl">
+        <div className="mt-20 text-center bg-gradient-section p-8 md:p-12 rounded-3xl animate-fade-in-up">
           <h3 className="text-3xl font-bold text-foreground mb-4">Why Our Process Delivers Results</h3>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto mb-8">
             Our methodology is designed for transparency, efficiency, and continuous improvement, ensuring your project's success.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { icon: Lightbulb, title: 'Clear Communication', description: 'Regular updates and open channels for feedback.' },
-              { icon: Code, title: 'Agile Adaptability', description: 'Flexible approach to changes and evolving requirements.' },
-              { icon: Rocket, title: 'Quality Focused', description: 'Rigorous testing and adherence to best practices.' }
-            ].map((benefit, index) => (
-              <div key={index} className="animate-fade-in p-6" style={{ animationDelay: `${index * 0.1}s` }}>
+            {[{
+              icon: Lightbulb,
+              title: 'Clear Communication',
+              description: 'Regular updates and open channels for feedback.'
+            },
+            {
+              icon: Code,
+              title: 'Agile Adaptability',
+              description: 'Flexible approach to changes and evolving requirements.'
+            },
+            {
+              icon: Rocket,
+              title: 'Quality Focused',
+              description: 'Rigorous testing and adherence to best practices.'
+            }].map((benefit, index) => (
+              <div key={index} className="p-6 animate-fade-in-up-stagger" style={{ animationDelay: `${0.8 + index * 0.15}s` }}>
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <benefit.icon className="h-8 w-8 text-primary-foreground" />
                 </div>
@@ -114,7 +124,7 @@ const Process = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center animate-fade-in-up" style={{ animationDelay: `${0.8 + steps.length * 0.15}s` }}>
           <div className="bg-gradient-primary p-8 rounded-3xl text-center animate-scale-in">
             <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
               Ready to start your project?

@@ -66,7 +66,7 @@ const Technologies = () => {
   return (
     <section id="technologies" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
             Our <span className="text-primary">Core Technologies</span>
           </h2>
@@ -77,8 +77,8 @@ const Technologies = () => {
 
         <div className="space-y-16">
           {techCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="animate-fade-in" style={{ animationDelay: `${categoryIndex * 0.15}s` }}>
-              <div className="flex items-center justify-center mb-8">
+            <div key={categoryIndex} className="animate-fade-in-up-stagger" style={{ animationDelay: `${0.2 + categoryIndex * 0.15}s` }}>
+              <div className="flex items-center justify-center mb-8 animate-fade-in-up-stagger" style={{ animationDelay: `${0.3 + categoryIndex * 0.15}s` }}>
                 <category.icon className="h-8 w-8 text-primary mr-3" />
                 <h3 className="text-3xl font-bold text-foreground">{category.name}</h3>
               </div>
@@ -86,7 +86,8 @@ const Technologies = () => {
                 {category.technologies.map((tech, techIndex) => (
                   <div 
                     key={techIndex} 
-                    className="flex flex-col items-center justify-center p-4 bg-card rounded-xl shadow-sm hover:shadow-medium transition-all duration-300 transform hover:scale-105 group"
+                    className="flex flex-col items-center justify-center p-4 bg-card rounded-xl shadow-sm hover:shadow-medium transition-all duration-300 transform hover:scale-105 group animate-fade-in-up-stagger"
+                    style={{ animationDelay: `${0.4 + categoryIndex * 0.15 + techIndex * 0.05}s` }}
                   >
                     <img 
                       src={tech.logo} 

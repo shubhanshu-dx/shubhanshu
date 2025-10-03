@@ -32,7 +32,7 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
             What Our <span className="text-primary">Clients Say</span>
           </h2>
@@ -45,8 +45,8 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="animate-fade-in bg-card p-6 rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="bg-card p-6 rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300 animate-fade-in-up-stagger"
+              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
               <CardContent className="p-0 flex flex-col h-full">
                 <div className="flex items-center mb-4">

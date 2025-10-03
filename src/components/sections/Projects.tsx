@@ -51,7 +51,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
             Our Latest <span className="text-primary">Projects</span>
           </h2>
@@ -64,8 +64,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="animate-fade-in bg-card rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300 transform hover:-translate-y-2"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="bg-card rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up-stagger"
+              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
               <CardHeader className="p-0">
                 <img 
@@ -99,7 +99,7 @@ const Projects = () => {
         </div>
 
         {/* Call to action for more projects */}
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center animate-fade-in-up" style={{ animationDelay: `${0.2 + projects.length * 0.1}s` }}>
           <p className="text-lg text-muted-foreground mb-6">
             Interested in seeing more of our work or starting a new project?
           </p>

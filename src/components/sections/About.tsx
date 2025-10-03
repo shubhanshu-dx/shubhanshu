@@ -6,7 +6,7 @@ const About = () => {
     <section id="about" className="py-20 bg-gradient-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* About Us Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-inter">
             About <span className="text-primary">Our Company</span>
           </h2>
@@ -25,7 +25,7 @@ const About = () => {
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Our team comprises passionate developers, creative designers, and strategic thinkers committed to excellence. We pride ourselves on a client-centric approach, ensuring every project not only meets but exceeds expectations.
             </p>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6 animate-fade-in-up-stagger" style={{ animationDelay: '0.6s' }}>
               <div className="text-center p-4 bg-card rounded-lg shadow-soft">
                 <div className="text-2xl font-bold text-primary mb-1">2023</div>
                 <div className="text-sm text-muted-foreground">Founded</div>
@@ -49,7 +49,7 @@ const About = () => {
         {/* Mission, Vision & Values */}
         <div className="grid md:grid-cols-3 gap-8 mt-16">
           {/* Mission */}
-          <div className="animate-scale-in bg-card p-8 rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300">
+          <div className="animate-fade-in-up-stagger bg-card p-8 rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300" style={{ animationDelay: '0.8s' }}>
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4">
                 <Target className="h-6 w-6 text-primary-foreground" />
@@ -62,7 +62,7 @@ const About = () => {
           </div>
 
           {/* Vision */}
-          <div className="animate-scale-in bg-card p-8 rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300" style={{ animationDelay: '0.2s' }}>
+          <div className="animate-fade-in-up-stagger bg-card p-8 rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300" style={{ animationDelay: '1.0s' }}>
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4">
                 <Eye className="h-6 w-6 text-primary-foreground" />
@@ -75,7 +75,7 @@ const About = () => {
           </div>
 
           {/* Core Values */}
-          <div className="animate-scale-in bg-card p-8 rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300" style={{ animationDelay: '0.4s' }}>
+          <div className="animate-fade-in-up-stagger bg-card p-8 rounded-2xl shadow-medium hover:shadow-strong transition-all duration-300" style={{ animationDelay: '1.2s' }}>
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4">
                 <Heart className="h-6 w-6 text-primary-foreground" />
@@ -92,27 +92,25 @@ const About = () => {
         </div>
 
         {/* Why Choose Us - New Section */}
-        <div className="mt-20 text-center">
+        <div className="mt-20 text-center animate-fade-in-up">
           <h3 className="text-3xl font-bold text-foreground mb-12">Why Choose SolveSphere?</h3>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Users,
-                title: 'Expert Team',
-                description: 'Our diverse team brings a wealth of experience and expertise to every project.'
-              },
-              {
-                icon: Lightbulb,
-                title: 'Innovative Solutions',
-                description: 'We leverage the latest technologies to craft unique and effective digital products.'
-              },
-              {
-                icon: TrendingUp,
-                title: 'Proven Track Record',
-                description: 'Delivering successful projects and fostering long-term client relationships.'
-              }
-            ].map((reason, index) => (
-              <div key={index} className="animate-fade-in p-6" style={{ animationDelay: `${index * 0.2}s` }}>
+            {[{
+              icon: Users,
+              title: 'Expert Team',
+              description: 'Our diverse team brings a wealth of experience and expertise to every project.'
+            },
+            {
+              icon: Lightbulb,
+              title: 'Innovative Solutions',
+              description: 'We leverage the latest technologies to craft unique and effective digital products.'
+            },
+            {
+              icon: TrendingUp,
+              title: 'Proven Track Record',
+              description: 'Delivering successful projects and fostering long-term client relationships.'
+            }].map((reason, index) => (
+              <div key={index} className="p-6 animate-fade-in-up-stagger" style={{ animationDelay: `${1.4 + index * 0.2}s` }}>
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <reason.icon className="h-8 w-8 text-primary-foreground" />
                 </div>
