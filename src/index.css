@@ -225,3 +225,7 @@ All colors MUST be HSL.
 .animate-float-reverse {
   animation: float-reverse 5s ease-in-out infinite;
 }
+
+html {
+  scroll-behavior: smooth;
+}
